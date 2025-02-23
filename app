@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Load dataset from environment variable or default path
 data_path = os.getenv('DATA_PATH', '/mnt/data/100 Sales Records.csv')
-data = pd.read_csv(data_path)
+data = pd.read_csv(data_path) 
 
 def generate_sales_recommendations():
     top_products = data.groupby('Product')['Total Revenue'].sum().nlargest(3).index.tolist()
